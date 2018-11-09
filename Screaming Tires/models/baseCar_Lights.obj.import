@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/baseCar_Lights.obj-f5066141169c03035918e4a17f0aa061.mesh"
+
+[deps]
+
+files=[ "res://.import/baseCar_Lights.obj-f5066141169c03035918e4a17f0aa061.mesh" ]
+
+source_file="res://models/baseCar_Lights.obj"
+dest_files=[ "res://.import/baseCar_Lights.obj-f5066141169c03035918e4a17f0aa061.mesh", "res://.import/baseCar_Lights.obj-f5066141169c03035918e4a17f0aa061.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
