@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/GameController.cs" type="Script" id=1]
 [ext_resource path="res://nightSky.tres" type="ProceduralSky" id=2]
 [ext_resource path="res://scenes/CarPlayer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/PlayGround.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PraticeMap.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
 
@@ -91,7 +91,7 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.359129, 6.3169, 5.83862 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.359129, 9.29, 11.5984 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = SubResource( 1 )
@@ -108,9 +108,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerCar" parent="." index="1" instance=ExtResource( 3 )]
 
-transform = Transform( -0.847839, 0, 0.530254, 0, 1, 0, -0.530254, 0, -0.847839, 0, 1.29639, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.66715, 0 )
 
-[node name="PlayGround" parent="." index="2" instance=ExtResource( 4 )]
+[node name="PraticeMap" parent="." index="2" instance=ExtResource( 4 )]
 
 [node name="Sun" type="DirectionalLight" parent="." index="3"]
 
