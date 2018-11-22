@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/GameController.cs" type="Script" id=1]
 [ext_resource path="res://scenes/CarPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/PraticeMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/SoundInput.cs" type="Script" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -46,6 +47,16 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
+
+[node name="SoundInput" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 24.0
+pitch_scale = 1.0
+autoplay = true
+stream_paused = false
+mix_target = 2
+bus = "Input"
+script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
