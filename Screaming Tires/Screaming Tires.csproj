@@ -53,6 +53,7 @@
     <Compile Include="scenes\SoundInput.cs" />
     <Compile Include="scripts\CarPlayer.cs" />
     <Compile Include="scripts\GameController.cs" />
+    <Compile Include="scripts\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="scenes\" />

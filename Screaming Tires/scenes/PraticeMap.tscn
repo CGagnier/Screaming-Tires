@@ -4,9 +4,9 @@
 
 [node name="PraticeMap" type="Spatial"]
 
-[node name="GridMap" type="GridMap" parent="." index="0"]
-
+[node name="GridMap" type="GridMap" parent="."]
 theme = ExtResource( 1 )
+mesh_library = ExtResource( 1 )
 cell_size = Vector3( 4, 4, 4 )
 cell_octant_size = 16
 cell_center_x = true
@@ -22,5 +22,4 @@ _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_editor_clip_": 0
 }
-
 

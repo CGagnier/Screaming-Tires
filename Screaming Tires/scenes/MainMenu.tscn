@@ -1,0 +1,204 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/MainMenu.cs" type="Script" id=1]
+[ext_resource path="res://textures/MenuNrmHover.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.0941176, 0.909804, 0.996078, 1, 1, 1, 1, 1 )
+_sections_unfolded = [ "colors" ]
+
+[sub_resource type="GradientTexture" id=4]
+
+flags = 4
+gradient = SubResource( 3 )
+width = 2048
+_sections_unfolded = [ "gradient" ]
+
+[sub_resource type="AtlasTexture" id=1]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 167, 27, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+_sections_unfolded = [ "atlas" ]
+
+[sub_resource type="AtlasTexture" id=2]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 165, 513, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="AtlasTexture" id=5]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 167, 182, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+_sections_unfolded = [ "atlas" ]
+
+[sub_resource type="AtlasTexture" id=6]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 165, 668, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="AtlasTexture" id=7]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 167, 337, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="AtlasTexture" id=8]
+
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 165, 823, 707, 124 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[node name="MenuBG" type="TextureRect"]
+light_mask = 1025
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 4 )
+expand = true
+script = ExtResource( 1 )
+_sections_unfolded = [ "Script", "Visibility", "texture" ]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 158.0
+margin_top = 68.0
+margin_right = 865.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 707.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 20
+alignment = 0
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 707.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 20.0
+margin_right = 707.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = SubResource( 1 )
+texture_hover = SubResource( 2 )
+_sections_unfolded = [ "Rect", "texture_hover" ]
+
+[node name="Pratice Mode" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 164.0
+margin_right = 707.0
+margin_bottom = 288.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = SubResource( 5 )
+texture_hover = SubResource( 6 )
+_sections_unfolded = [ "Textures", "texture_normal" ]
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 308.0
+margin_right = 707.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = SubResource( 7 )
+texture_hover = SubResource( 8 )
+_sections_unfolded = [ "Textures", "texture_hover", "texture_normal" ]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="LoadGame"]

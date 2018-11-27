@@ -19,6 +19,12 @@ config/name="Screaming Tires"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
