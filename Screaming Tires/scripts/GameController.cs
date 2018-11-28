@@ -5,8 +5,7 @@ public class GameController : Node
 {
 
     //Vector3 START_POSITION = new Vector3();
-
-    Container pauseScreen;
+    double raceTime;
 
     public override void _Ready()
     {
@@ -14,8 +13,9 @@ public class GameController : Node
         // Place the checkpoints
         // Start a Timer
         // 
-        pauseScreen = (Container) GetNode("UI/HBox/PausedScreen");
-        pauseScreen.Visible = false;
+
+        GetNode<HUD>("HUD").SetPauseScreenVisibility(false);
+        NewGame();
         
     }
 
@@ -23,24 +23,27 @@ public class GameController : Node
     {
         if (Input.IsActionJustPressed("ui_accept")) {
             // Reset car to starting position then add 1 sec to the timer
-
         }
-
-
-
 
         if (Input.IsActionJustPressed("ui_cancel")) 
             TogglePause(true);
            
     }
+    public void NewGame() {
+
+        raceTime = 0.0;
+        GetNode<Timer>("Timer").Start();
+    }
+    public void OnTimerTimeout() {
+
+        raceTime++;
+        GetNode<HUD>("HUD").UpdateTimer(raceTime);
+    }
+
     // Use to toggle the game pause state
     public void TogglePause(bool state) {
         GD.Print("Toggle Pause " + state.ToString());
 
-        pauseScreen.Visible = state;
-
         GetTree().Paused = state;
-
-
     }
 }
