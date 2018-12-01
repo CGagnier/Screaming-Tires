@@ -216,3 +216,5 @@ align = 1
 
 [connection signal="pressed" from="HBox/Top/PauseBtn" to="." method="OnButtonPausePressed"]
 [connection signal="pressed" from="HBox/PausedScreen/VBoxContainer/Resume" to="." method="OnResume"]
+[connection signal="pressed" from="HBox/PausedScreen/VBoxContainer/Restart" to="." method="OnRestart"]
+[connection signal="pressed" from="HBox/PausedScreen/VBoxContainer/Menu" to="." method="OnMainMenu"]

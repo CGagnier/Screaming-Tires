@@ -105,7 +105,7 @@ engine_force = 0.0
 brake = 0.0
 steering = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Motion", "Transform" ]
+_sections_unfolded = [ "Axis Lock", "Motion", "Transform" ]
 
 [node name="Front_Lights" type="Spatial" parent="."]
 editor/display_folded = true
@@ -189,7 +189,7 @@ wheel_radius = 0.175
 wheel_rest_length = 0.15
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
-suspension_stiffness = 40.0
+suspension_stiffness = 50.0
 suspension_max_force = 6000.0
 damping_compression = 0.88
 damping_relaxation = 0.88
@@ -212,7 +212,6 @@ material/0 = SubResource( 3 )
 _sections_unfolded = [ "Transform", "material", "mesh" ]
 
 [node name="Back-R" type="VehicleWheel" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497812, -0.0829626, -0.548375 )
 use_as_traction = true
 use_as_steering = false
@@ -221,7 +220,7 @@ wheel_radius = 0.175
 wheel_rest_length = 0.15
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
-suspension_stiffness = 40.0
+suspension_stiffness = 50.0
 suspension_max_force = 6000.0
 damping_compression = 0.88
 damping_relaxation = 0.88
@@ -253,7 +252,7 @@ wheel_radius = 0.175
 wheel_rest_length = 0.15
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
-suspension_stiffness = 40.0
+suspension_stiffness = 50.0
 suspension_max_force = 6000.0
 damping_compression = 0.88
 damping_relaxation = 0.88
@@ -285,7 +284,7 @@ wheel_radius = 0.175
 wheel_rest_length = 0.15
 wheel_friction_slip = 1.0
 suspension_travel = 0.1
-suspension_stiffness = 40.0
+suspension_stiffness = 50.0
 suspension_max_force = 6000.0
 damping_compression = 0.88
 damping_relaxation = 0.88
@@ -330,3 +329,4 @@ min_distance = 4.0
 max_distance = 10.0
 angle_v_adjust = 0.0
 
+[connection signal="body_entered" from="." to="." method="OnCollision"]

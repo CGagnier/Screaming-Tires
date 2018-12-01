@@ -23,24 +23,11 @@ physics_material_override = SubResource( 1 )
 
 [node name="Checkpoints" type="Spatial" parent="."]
 
-[node name="MeshInstance" type="MeshInstance" parent="Checkpoints"]
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = null
-skeleton = NodePath("..")
-
 [node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( -0.715876, -0.313745, 0.623768, 0, 0.893358, 0.449345, -0.698228, 0.321675, -0.639533, 10.205, 6.01295, 0 )
+transform = Transform( -0.809096, -0.264069, 0.525005, 0, 0.893358, 0.449345, -0.587676, 0.363563, -0.722813, 10.205, 6.01295, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.2
+light_energy = 0.1
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
@@ -61,6 +48,7 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Directional Shadow", "Light", "Matrix" ]
 
 [node name="SoundInput" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -91,7 +79,7 @@ autostart = false
 stream = ExtResource( 3 )
 volume_db = -3.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 stream_paused = false
 mix_target = 0
 bus = "Master"
@@ -99,5 +87,7 @@ bus = "Master"
 [node name="RaceMap" parent="." instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
+[connection signal="MainMenu" from="HUD" to="." method="ChangeMain"]
 [connection signal="PauseGame" from="HUD" to="." method="TogglePause" binds= [ true ]]
+[connection signal="RestartGame" from="HUD" to="." method="RestartGame"]
 [connection signal="ResumeGame" from="HUD" to="." method="TogglePause" binds= [ false ]]

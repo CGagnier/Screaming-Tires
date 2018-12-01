@@ -4,7 +4,7 @@ extends Camera
 # Member variables
 var collision_exception = []
 export var min_distance = 0.5
-export var max_distance = 4.0
+export var max_distance = 1.0
 export var angle_v_adjust = 0.0
 #export var autoturn_ray_aperture = 25
 #export var autoturn_speed = 50
@@ -13,6 +13,7 @@ var min_height = 0
 
 
 func _physics_process(dt):
+		
 	var target = get_parent().get_global_transform().origin
 	var pos = get_global_transform().origin
 	var up = Vector3(0, 1, 0)
@@ -41,17 +42,3 @@ func _physics_process(dt):
 	var t = get_transform()
 	t.basis = Basis(t.basis[0], deg2rad(angle_v_adjust))*t.basis
 	set_transform(t)
-
-
-func _ready():
-	# Find collision exceptions for ray
-	var node = self
-	while(node):
-		if (node is RigidBody):
-			collision_exception.append(node.get_rid())
-			break
-		else:
-			node = node.get_parent()
-	
-	# This detaches the camera transform from the parent spatial node
-	set_as_toplevel(true)

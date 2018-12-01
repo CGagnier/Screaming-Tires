@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://models/Material_001.material" type="Material" id=1]
-[ext_resource path="res://materials/BasicColorMat.tres" type="Material" id=2]
+[ext_resource path="res://materials/BasicColorMat.tres" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 
@@ -16,11 +15,11 @@ surfaces/0 = {
 "format": 97559,
 "index_count": 732,
 "material": ExtResource( 1 ),
-"name": "Material.001",
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 277
 }
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ConvexPolygonShape" id=2]
 
@@ -68,8 +67,8 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "material" ]
+material/0 = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "material", "mesh" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.2, 0 )

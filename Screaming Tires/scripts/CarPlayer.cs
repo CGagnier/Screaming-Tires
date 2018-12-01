@@ -4,9 +4,9 @@ using System;
 public class CarPlayer : VehicleBody
 {
 
-    const float maxEngineForce = 50f;
-    const float steerMax = 0.9f;
-    const float steerSpeed = 1;
+    const float maxEngineForce = 30f;
+    const float steerMax = 0.8f;
+    const float steerSpeed = 0.5f;
 
     float steer_angle = 0;
     float steer_target = 0;
@@ -22,11 +22,10 @@ public class CarPlayer : VehicleBody
     public override void _Ready()
     {
 
-        lightsOff = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_OFF.tres");
-        lightsOn = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_ON.tres");
+        //lightsOff = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_OFF.tres");
+        //lightsOn = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_ON.tres");
 
         lightsGroup = (Spatial)GetNode("Front_Lights");
-        
 
         car = (MeshInstance) GetNode("CarMesh");
 
@@ -48,20 +47,18 @@ public class CarPlayer : VehicleBody
             EngineForce = maxEngineForce;
 
             //Can we turn on the front lights? 
-            car.SetSurfaceMaterial(0, lightsOn);
+            //car.SetSurfaceMaterial(0, lightsOn);
             lightsGroup.Show();
-            
-            //car.SetMaterialOverride(lightsOn);
+
         }
         else if (Input.IsActionPressed("ui_down"))
             EngineForce = -maxEngineForce;
         else {
-            car.SetSurfaceMaterial(0, lightsOff);
+            //car.SetSurfaceMaterial(0, lightsOff);
             lightsGroup.Hide();
             EngineForce = 0;
 
         }
-       // EngineForce = Input.IsActionPressed("ui_up")? maxEngineForce : 0;
 
         if (steer_target < steer_angle) {
 
@@ -78,5 +75,9 @@ public class CarPlayer : VehicleBody
         }
 
         Steering = steer_angle;
+    }
+
+    public void OnCollision (Godot.Object body) {
+        GD.Print(body);
     }
 }
