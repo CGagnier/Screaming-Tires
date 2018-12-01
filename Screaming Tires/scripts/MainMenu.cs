@@ -3,9 +3,6 @@ using System;
 
 public class MainMenu : TextureRect
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -15,10 +12,11 @@ public class MainMenu : TextureRect
 	void LoadGame() {
         GetTree().ChangeScene("res://scenes/Main.tscn");
 	}
+    void QuitGame() {
+        GetTree().Quit();
+    }
+    void PraticeGame() {
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    }
+
 }

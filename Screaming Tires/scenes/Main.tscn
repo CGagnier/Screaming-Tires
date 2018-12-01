@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scripts/GameController.cs" type="Script" id=1]
 [ext_resource path="res://scenes/CarPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/PraticeMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=4]
-[ext_resource path="res://scenes/SoundInput.cs" type="Script" id=5]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/SoundInput.cs" type="Script" id=4]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/RaceMap.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -18,10 +18,23 @@ absorbent = false
 script = ExtResource( 1 )
 
 [node name="PlayerCar" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.66715, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.579887, 0 )
 physics_material_override = SubResource( 1 )
 
-[node name="PraticeMap" parent="." instance=ExtResource( 3 )]
+[node name="Checkpoints" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Checkpoints"]
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = null
+skeleton = NodePath("..")
 
 [node name="Sun" type="DirectionalLight" parent="."]
 transform = Transform( -0.715876, -0.313745, 0.623768, 0, 0.893358, 0.449345, -0.698228, 0.321675, -0.639533, 10.205, 6.01295, 0 )
@@ -50,14 +63,14 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 
 [node name="SoundInput" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 volume_db = 24.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 2
 bus = "Input"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Pause", "stream" ]
 
 [node name="Timer" type="Timer" parent="."]
@@ -72,7 +85,18 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="HUD" parent="." instance=ExtResource( 6 )]
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = true
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
+[node name="RaceMap" parent="." instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
 [connection signal="PauseGame" from="HUD" to="." method="TogglePause" binds= [ true ]]

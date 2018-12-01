@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://textures/MenuNrmHover.png" type="Texture" id=2]
+[ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=1]
 
@@ -202,4 +203,14 @@ texture_normal = SubResource( 7 )
 texture_hover = SubResource( 8 )
 _sections_unfolded = [ "Textures", "texture_hover", "texture_normal" ]
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="LoadGame"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="QuitGame"]
