@@ -6,8 +6,9 @@ public class GameController : Node
 
     //Vector3 START_POSITION = new Vector3();
     double raceTime;
-    int NbOfCheckpoints;
-    int currentCheckpoints;
+
+    [Export]
+    PackedScene check;
 
     public override void _Ready()
     {
@@ -37,11 +38,31 @@ public class GameController : Node
 
         raceTime = 0.0;
         GetNode<Timer>("Timer").Start();
-        currentCheckpoints = 0;
-        NbOfCheckpoints = 0;
+
+        // Generate Checkpoints based on Array of Vectors
+
+        Vector3[] checkpoints = new Vector3[2];
+        checkpoints[0] = new Vector3(10, 0, 0);
+        checkpoints[1] = new Vector3(11, 0, 16);
+
+        GenerateCheckpoints(checkpoints);
 
 
     }
+    public void GenerateCheckpoints(Vector3[] listOfCheckpoints) {
+        Checkpoint head = null;
+
+        for (int i = 0; i < listOfCheckpoints.Length;i++) {
+            Checkpoint temp = (Checkpoint)check.Instance();
+
+            GetNode("CheckpointsContainer").AddChild(temp);
+
+            temp.Initialize(listOfCheckpoints[i], head);
+            head = Checkpoint.AddCheckpoint(head, temp);
+
+        }
+    }
+
     public void RestartGame() {
         // Reset time, replace objects, place car back to start
         GetTree().Paused = false;

@@ -213,5 +213,5 @@ item/6/shapes = [ SubResource( 8 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5
 item/7/name = "grass"
 item/7/mesh = SubResource( 13 )
 item/7/shapes = [ SubResource( 14 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
-_sections_unfolded = [ "item", "item/0", "item/0/mesh", "item/0/preview", "item/1", "item/1/preview", "item/2", "item/2/preview", "item/3", "item/3/preview", "item/4", "item/4/preview", "item/5", "item/5/preview", "item/6", "item/6/preview", "item/7", "item/7/preview" ]
+_sections_unfolded = [ "item/0", "item/0/mesh", "item/0/preview", "item/1", "item/1/preview", "item/2", "item/2/preview", "item/3", "item/3/preview", "item/4", "item/4/preview", "item/5", "item/5/preview", "item/6", "item/6/preview", "item/7", "item/7/preview" ]
 

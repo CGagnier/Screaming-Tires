@@ -34,6 +34,7 @@ public class CarPlayer : VehicleBody
     {
         // Check for inputs. Steer + speed
 
+
         // Need to replace by voice pitch
         if (Input.IsActionPressed("ui_left")) // High Pitch
             steer_target = steerMax; 
@@ -44,6 +45,7 @@ public class CarPlayer : VehicleBody
 
         if (Input.IsActionPressed("ui_up")) {
 
+
             EngineForce = maxEngineForce;
 
             //Can we turn on the front lights? 
@@ -51,12 +53,15 @@ public class CarPlayer : VehicleBody
             lightsGroup.Show();
 
         }
-        else if (Input.IsActionPressed("ui_down"))
+        else if (Input.IsActionPressed("ui_down")){
+            Brake = 0;
             EngineForce = -maxEngineForce;
+        }
         else {
             //car.SetSurfaceMaterial(0, lightsOff);
             lightsGroup.Hide();
             EngineForce = 0;
+            Brake = 0.5f;
 
         }
 

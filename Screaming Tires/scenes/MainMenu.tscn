@@ -8,14 +8,12 @@
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.0941176, 0.909804, 0.996078, 1, 1, 1, 1, 1 )
-_sections_unfolded = [ "colors" ]
 
 [sub_resource type="GradientTexture" id=2]
 
 flags = 4
 gradient = SubResource( 1 )
 width = 2048
-_sections_unfolded = [ "gradient" ]
 
 [sub_resource type="AtlasTexture" id=3]
 
@@ -24,7 +22,6 @@ atlas = ExtResource( 2 )
 region = Rect2( 167, 27, 707, 124 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
-_sections_unfolded = [ "atlas" ]
 
 [sub_resource type="AtlasTexture" id=4]
 
@@ -41,7 +38,6 @@ atlas = ExtResource( 2 )
 region = Rect2( 167, 182, 707, 124 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
-_sections_unfolded = [ "atlas" ]
 
 [sub_resource type="AtlasTexture" id=6]
 
@@ -85,7 +81,6 @@ texture = SubResource( 2 )
 expand = true
 stretch_mode = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Script", "Visibility", "texture" ]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.0
@@ -109,7 +104,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 707.0
-margin_bottom = 432.0
+margin_bottom = 288.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -118,7 +113,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 20
 alignment = 0
-_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 anchor_left = 0.0
@@ -155,7 +149,6 @@ shortcut = null
 group = null
 texture_normal = SubResource( 3 )
 texture_hover = SubResource( 4 )
-_sections_unfolded = [ "Rect", "Textures", "texture_hover" ]
 
 [node name="Pratice Mode" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 visible = false
@@ -179,7 +172,6 @@ shortcut = null
 group = null
 texture_normal = SubResource( 5 )
 texture_hover = SubResource( 6 )
-_sections_unfolded = [ "Textures", "texture_normal" ]
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 anchor_left = 0.0
@@ -202,7 +194,6 @@ shortcut = null
 group = null
 texture_normal = SubResource( 7 )
 texture_hover = SubResource( 8 )
-_sections_unfolded = [ "Textures", "texture_hover", "texture_normal" ]
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
