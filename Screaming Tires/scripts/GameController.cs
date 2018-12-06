@@ -41,26 +41,39 @@ public class GameController : Node
 
         // Generate Checkpoints based on Array of Vectors
 
-        Vector3[] checkpoints = new Vector3[2];
+        Vector3[] checkpoints = new Vector3[3];
         checkpoints[0] = new Vector3(10, 0, 0);
         checkpoints[1] = new Vector3(11, 0, 16);
+        checkpoints[2] = new Vector3(0, 0, 16);
 
         GenerateCheckpoints(checkpoints);
 
 
     }
     public void GenerateCheckpoints(Vector3[] listOfCheckpoints) {
-        Checkpoint head = null;
 
+        Checkpoint[] tempCheckpoints = new Checkpoint[listOfCheckpoints.Length];
+
+        // First iteration we only create instances of the checkpoint
         for (int i = 0; i < listOfCheckpoints.Length;i++) {
             Checkpoint temp = (Checkpoint)check.Instance();
-
-            GetNode("CheckpointsContainer").AddChild(temp);
-
-            temp.Initialize(listOfCheckpoints[i], head);
-            head = Checkpoint.AddCheckpoint(head, temp);
-
+            tempCheckpoints[i] = temp;
         }
+
+        // The second pass is to add the elements to the level, and set next and last values
+        for (int j = 0; j < tempCheckpoints.Length; j++) {
+
+            tempCheckpoints[j].Initialize(listOfCheckpoints[j]);
+
+            if (j> 0) {
+                tempCheckpoints[j].Last = tempCheckpoints[j - 1];
+            }
+            if (j < tempCheckpoints.Length-1){
+                tempCheckpoints[j].Next = tempCheckpoints[j + 1];
+            }
+            GetNode("CheckpointsContainer").AddChild(tempCheckpoints[j]);
+        }
+
     }
 
     public void RestartGame() {
