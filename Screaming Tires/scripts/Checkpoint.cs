@@ -5,28 +5,40 @@ public class Checkpoint : Area
 {
     [Signal]
     public delegate void HasBeenChecked();
-    [Signal]
-    public delegate void Won();
 
     public Checkpoint Last { get; set; }
     public Checkpoint Next { get; set; }
     public bool Checked { get; set; }
 
+    /// <summary>
+    /// Initialize the Checkpoint to the specified position, then set his Checked value to false
+    /// </summary>
+    /// <param name="pos">Position</param>
     public void Initialize(Vector3 pos)
     {
         Translate(pos);
         Checked = false;
     }
 
+    public override string ToString()
+    {
+        return ("Checked: "+ Checked +" Last: " + Last + " Next: " + Next);
+    }
 
     public override void _Ready()
     {
         // Show the first checkpoint
         Visible = (Last == null);
 
+        GD.Print("We are ready for mister");
+        GD.Print(Next);
+        GD.Print(Last);
+
         // Rotate the checkpoint to the Next one direction
         if (Next != null){
-            //LookAt(new Vector3(0, 0, 0), new Vector3(0, 0, 0));
+            GD.Print("There a next");
+            GD.Print(Next.GetTranslation());
+            LookAt(Next.Translation, new Vector3(0, 1, 0));
         }
     }
 
@@ -45,16 +57,12 @@ public class Checkpoint : Area
         if (Next != null) {
             Next.Show();
         }
-        else {
-            EmitSignal("Won");
-        }
-
     }
 
     // Waiting for collision with the vehicule to set the checkpoint visibility
     public void BodyEntered(Godot.Object col) {
         bool isVehicule = col is VehicleBody;
-        if (isVehicule)
+        if (!Checked && isVehicule)
             CheckIt();
     }
 
