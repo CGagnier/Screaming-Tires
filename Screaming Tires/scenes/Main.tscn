@@ -51,4 +51,7 @@ bus = "Input"
 script = ExtResource( 8 )
 
 [connection signal="HasBeenChecked" from="CheckpointsContainer" to="." method="ReceivedCheckpoint"]
+[connection signal="PauseGame" from="HUD" to="." method="TogglePause" binds= [ true ]]
+[connection signal="RestartGame" from="HUD" to="." method="RestartGame"]
+[connection signal="ResumeGame" from="HUD" to="." method="TogglePause" binds= [ false ]]
 [connection signal="timeout" from="timers/Timer" to="." method="OnTimerTimeout"]

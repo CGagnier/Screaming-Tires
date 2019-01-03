@@ -54,6 +54,8 @@
     <Compile Include="scripts\CarPlayer.cs" />
     <Compile Include="scripts\Checkpoint.cs" />
     <Compile Include="scripts\CheckpointsGenerator.cs" />
+    <Compile Include="scripts\Circuit.cs" />
+    <Compile Include="scripts\CircuitOption.cs" />
     <Compile Include="scripts\GameController.cs" />
     <Compile Include="scripts\HUD.cs" />
     <Compile Include="scripts\MainMenu.cs" />

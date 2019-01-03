@@ -43,6 +43,7 @@ public class GameController : Node
 
         raceTime = 0.0;
         GetNode<Timer>("timers/Timer").Start();
+        
 
         // Generate Checkpoints based on Array of Vectors
 
@@ -59,9 +60,9 @@ public class GameController : Node
 
 
     public void RestartGame() {
-        // Reset time, replace objects, place car back to start
-        GetTree().Paused = false;
-        GetTree().ChangeScene("res://scenes/Main.tscn");
+        // TODO: Reset time, replace objects, place car back to start
+        //GetTree().Paused = false;
+        //GetTree().ChangeScene("res://scenes/Main.tscn");
     }
     public void OnTimerTimeout() {
 

@@ -16,13 +16,13 @@ public class HUD : MarginContainer
         // Time should be formatted as mm:ss
         TimeSpan formattedTime = TimeSpan.FromSeconds(time);
 
-        GetNode<Label>("HBox/Top/TimerLabel").Text = formattedTime.ToString();
+        GetNode<Label>("GameControls/Top/labels/TimerLabel").Text = formattedTime.ToString();
     }
     public void SetPauseScreenVisibility(bool state) {
         if (state) {
-            GetNode<CenterContainer>("HBox/PausedScreen").Show();
+            GetNode<CenterContainer>("GameControls/PausedScreen").Show();
         }else {
-            GetNode<CenterContainer>("HBox/PausedScreen").Hide();
+            GetNode<CenterContainer>("GameControls/PausedScreen").Hide();
         }
 	    
 	}
