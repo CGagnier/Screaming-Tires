@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/arrow.dae-1e6417e00db794a24e1021f853c2ea1d.scn"
+path="res://.import/BuildingsRoadAndObjects.dae-0a84f91fa6892b729956a58f02e513de.scn"
 
 [deps]
 
-source_file="res://models/arrow.dae"
-dest_files=[ "res://.import/arrow.dae-1e6417e00db794a24e1021f853c2ea1d.scn" ]
+source_file="res://models/BuildingsRoadAndObjects.dae"
+dest_files=[ "res://.import/BuildingsRoadAndObjects.dae-0a84f91fa6892b729956a58f02e513de.scn" ]
 
 [params]
 

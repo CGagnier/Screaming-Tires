@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/RaceMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=7]
-[ext_resource path="res://scenes/SoundInput.cs" type="Script" id=8]
+[ext_resource path="res://scripts/SoundInput.cs" type="Script" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -37,7 +37,6 @@ one_shot = true
 [node name="Timer" type="Timer" parent="timers"]
 
 [node name="sounds" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Music" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource( 7 )
