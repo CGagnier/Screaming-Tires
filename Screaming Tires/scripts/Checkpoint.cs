@@ -30,15 +30,18 @@ public class Checkpoint : Area
         // Show the first checkpoint
         Visible = (Last == null);
 
-        GD.Print("We are ready for mister");
-        GD.Print(Next);
-        GD.Print(Last);
+        GD.Print("I'm at",Translation);
+
+        if (Last != null){
+            GD.Print("The last is at", Last.Translation);
+            Last.LookAt(Translation, new Vector3(0,1,0));
+        }
 
         // Rotate the checkpoint to the Next one direction
-        if (Next != null){
-            GD.Print("There a next");
-            GD.Print(Next.GetTranslation());
-            LookAt(Next.Translation, new Vector3(0, 1, 0));
+        if (Next == null){ 
+            GD.Print("Final Checkpoint, should look at the ground");
+            // TODO: Add animation (u/d + rotate)
+            Rotate(new Vector3(1,0,0),-1.57f);
         }
     }
 

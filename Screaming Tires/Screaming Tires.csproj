@@ -57,6 +57,7 @@
     <Compile Include="scripts\CircuitOption.cs" />
     <Compile Include="scripts\GameController.cs" />
     <Compile Include="scripts\HUD.cs" />
+    <Compile Include="scripts\Lamp.cs" />
     <Compile Include="scripts\MainMenu.cs" />
     <Compile Include="scripts\SoundInput.cs" />
   </ItemGroup>
