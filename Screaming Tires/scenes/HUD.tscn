@@ -28,6 +28,22 @@ custom_constants/separation = 100
 [node name="Top" type="Container" parent="GameControls"]
 margin_right = 1820.0
 
+[node name="Checkpoints" type="HBoxContainer" parent="GameControls/Top"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="FlagLabel" type="Label" parent="GameControls/Top/Checkpoints"]
+margin_right = 94.0
+margin_bottom = 66.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "0/0"
+
+[node name="FlagIcon" type="TextureRect" parent="GameControls/Top/Checkpoints"]
+margin_left = 98.0
+margin_right = 98.0
+margin_bottom = 66.0
+
 [node name="labels" type="VBoxContainer" parent="GameControls/Top"]
 anchor_left = 1.0
 anchor_right = 1.0

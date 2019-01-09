@@ -12,6 +12,9 @@ public class HUD : MarginContainer
     [Signal]
     public delegate void MainMenu();
 
+    private int totNumOfCheckpoints;
+    private int currentNumOfCheckpoints;
+
     public void UpdateTimer(double time) {
         // Time should be formatted as mm:ss
         TimeSpan formattedTime = TimeSpan.FromSeconds(time);
@@ -26,6 +29,18 @@ public class HUD : MarginContainer
         }
 	    
 	}
+
+    public void SetNumberOfCheckpoints(int num) {
+        GD.Print("SetCheckChecks:"+num);
+        totNumOfCheckpoints = num;
+        currentNumOfCheckpoints = 0;
+
+        GetNode<Label>("GameControls/Top/Checkpoints/FlagLabel").Text = currentNumOfCheckpoints+ "/"+totNumOfCheckpoints;
+    }
+    public void IncreaseCheckpointCount() {
+        currentNumOfCheckpoints++;
+        GetNode<Label>("GameControls/Top/Checkpoints/FlagLabel").Text = currentNumOfCheckpoints+ "/"+totNumOfCheckpoints;
+    }
 
     private void OnButtonPausePressed()
     {

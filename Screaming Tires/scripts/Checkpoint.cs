@@ -10,6 +10,9 @@ public class Checkpoint : Area
     public Checkpoint Next { get; set; }
     public bool Checked { get; set; }
 
+    private Material unactiveMat;
+
+
     /// <summary>
     /// Initialize the Checkpoint to the specified position, then set his Checked value to false
     /// </summary>
@@ -30,7 +33,8 @@ public class Checkpoint : Area
         // Show the first checkpoint
         Visible = (Last == null);
 
-        GD.Print("I'm at",Translation);
+        AnimationPlayer floating = GetNode<AnimationPlayer>("Arrow/Anim");
+        unactiveMat = (Material)GD.Load("res://materials/UnactiveFlag.tres");
 
         if (Last != null){
             GD.Print("The last is at", Last.Translation);
@@ -39,9 +43,11 @@ public class Checkpoint : Area
 
         // Rotate the checkpoint to the Next one direction
         if (Next == null){ 
-            GD.Print("Final Checkpoint, should look at the ground");
-            // TODO: Add animation (u/d + rotate)
+            // Play self rotate animation
+            floating.Play("Spin");
             Rotate(new Vector3(1,0,0),-1.57f);
+        }else {
+            floating.Play("Float");
         }
     }
 
@@ -49,17 +55,18 @@ public class Checkpoint : Area
 
         Checked = true;
         EmitSignal("HasBeenChecked");
-        // Need to change color from green to gray? 
 
         // Show the Next checkpoint and hide the Last one
-        if (Last != null){
+        if (Last != null)
             Last.Hide();
-        }
-
-        // If there's no next checkpoint, game is over, else show the next one.
+        
+        // If there's no next checkpoint, game is over, else show the next one. And Change color to inacive checkpoint
         if (Next != null) {
-            Next.Show();
+            Next.Show(); 
+            MeshInstance arrow = (MeshInstance)GetNode("Arrow");
+            arrow.SetSurfaceMaterial(0,(Material)unactiveMat);
         }
+        
     }
 
     // Waiting for collision with the vehicule to set the checkpoint visibility

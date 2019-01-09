@@ -9,11 +9,13 @@ public class GameController : Node
     int totalCheckpoints;
     int checkpointsLeft;
 
+    HUD hudNode;
+
     public override void _Ready()
     {
         // Should read from loaded map what is the starting position for the player and place the player
-
-        GetNode<HUD>("HUD").SetPauseScreenVisibility(false);
+        hudNode = GetNode<HUD>("HUD");
+        hudNode.SetPauseScreenVisibility(false);
         NewGame();
     }
 
@@ -26,6 +28,7 @@ public class GameController : Node
     public void ReceivedCheckpoint() {
         GD.Print("One more");
         checkpointsLeft--;
+		hudNode.IncreaseCheckpointCount();
         if (checkpointsLeft == 0){
             GameOver();
         }
@@ -44,7 +47,6 @@ public class GameController : Node
         raceTime = 0.0;
         GetNode<Timer>("timers/Timer").Start();
         
-
         // Generate Checkpoints based on Array of Vectors
 
         Vector3[] checkpoints = new Vector3[3];
@@ -54,6 +56,8 @@ public class GameController : Node
 
         totalCheckpoints = checkpoints.Length;
         checkpointsLeft = totalCheckpoints;
+
+        hudNode.SetNumberOfCheckpoints(totalCheckpoints);
 
         GetNode<CheckpointsGenerator>("CheckpointsContainer").GenerateCheckpoints(checkpoints);
     }
