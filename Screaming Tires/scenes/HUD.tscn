@@ -47,28 +47,26 @@ margin_bottom = 66.0
 [node name="labels" type="VBoxContainer" parent="GameControls/Top"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -387.0
+margin_left = -468.0
 margin_bottom = 136.0
-alignment = 2
 
 [node name="TimerLabel" type="Label" parent="GameControls/Top/labels"]
-margin_right = 387.0
+margin_right = 468.0
 margin_bottom = 66.0
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
-text = "00:00"
+text = "00:00:00"
 align = 2
 
 [node name="HighScoreLabel" type="Label" parent="GameControls/Top/labels"]
 margin_top = 70.0
-margin_right = 387.0
+margin_right = 468.0
 margin_bottom = 136.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
-text = "Best time 00:00"
+text = "Best time 00:00:00"
 align = 2
-valign = 1
 
 [node name="PauseBtn" type="Button" parent="GameControls/Top"]
 anchor_left = 0.5

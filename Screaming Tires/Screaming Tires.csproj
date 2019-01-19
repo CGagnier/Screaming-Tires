@@ -59,6 +59,7 @@
     <Compile Include="scripts\HUD.cs" />
     <Compile Include="scripts\Lamp.cs" />
     <Compile Include="scripts\MainMenu.cs" />
+    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\SoundInput.cs" />
   </ItemGroup>
   <ItemGroup>

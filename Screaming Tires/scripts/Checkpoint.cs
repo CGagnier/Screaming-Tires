@@ -36,11 +36,9 @@ public class Checkpoint : Area
         AnimationPlayer floating = GetNode<AnimationPlayer>("Arrow/Anim");
         unactiveMat = (Material)GD.Load("res://materials/UnactiveFlag.tres");
 
-        if (Last != null){
-            GD.Print("The last is at", Last.Translation);
+        if (Last != null)
             Last.LookAt(Translation, new Vector3(0,1,0));
-        }
-
+        
         // Rotate the checkpoint to the Next one direction
         if (Next == null){ 
             // Play self rotate animation

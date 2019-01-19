@@ -16,7 +16,6 @@ public class CheckpointsGenerator : Spatial
     /// <param name="listOfCheckpoints">Array of Vector3 position where the checkpoints should be placed</param>
     public void GenerateCheckpoints(Vector3[] listOfCheckpoints)
     {
-        GD.Print("Started to generate checkpoints");
         Checkpoint[] tempCheckpoints = new Checkpoint[listOfCheckpoints.Length];
 
         // First iteration we only create instances of the checkpoint
@@ -31,13 +30,10 @@ public class CheckpointsGenerator : Spatial
         {
             tempCheckpoints[j].Initialize(listOfCheckpoints[j]);
 
-            if (j > 0){
-                GD.Print("We have a last");
+            if (j > 0){ // We have a last checkpoint
                 tempCheckpoints[j].Last = tempCheckpoints[j - 1];
             }
-            if (j < tempCheckpoints.Length - 1){
-                GD.Print("We have a next");
-                GD.Print(tempCheckpoints[j + 1]);
+            if (j < tempCheckpoints.Length - 1){ // We have a next checkpoint
                 tempCheckpoints[j].Next = tempCheckpoints[j + 1];
             }
             tempCheckpoints[j].Connect("HasBeenChecked", this, nameof(Checked));

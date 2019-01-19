@@ -18,8 +18,11 @@ public class HUD : MarginContainer
     public void UpdateTimer(double time) {
         // Time should be formatted as mm:ss
         TimeSpan formattedTime = TimeSpan.FromSeconds(time);
-
         GetNode<Label>("GameControls/Top/labels/TimerLabel").Text = formattedTime.ToString();
+    }
+    public void UpdateHighScore(double time) {
+        TimeSpan formattedHSTime = TimeSpan.FromSeconds(time);
+        GetNode<Label>("GameControls/Top/labels/HighScoreLabel").Text = "Best time "+ formattedHSTime.ToString();
     }
     public void SetPauseScreenVisibility(bool state) {
         if (state) {
@@ -31,7 +34,6 @@ public class HUD : MarginContainer
 	}
 
     public void SetNumberOfCheckpoints(int num) {
-        GD.Print("SetCheckChecks:"+num);
         totNumOfCheckpoints = num;
         currentNumOfCheckpoints = 0;
 
