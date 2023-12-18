@@ -4,7 +4,7 @@ using System;
 public partial class CheckpointsGenerator : Node3D
 {
 	[Signal]
-	public delegate void HasBeenChecked();
+	public delegate void HasBeenCheckedEventHandler();
 
 	[Export]
 	public PackedScene checkpointNode;
@@ -21,7 +21,7 @@ public partial class CheckpointsGenerator : Node3D
 		// First iteration we only create instances of the checkpoint
 		for (int i = 0; i < listOfCheckpoints.Length; i++)
 		{
-			Checkpoint temp = (Checkpoint)checkpointNode.Instance();
+			Checkpoint temp = (Checkpoint)checkpointNode.Instantiate();
 			tempCheckpoints[i] = temp;
 		}
 

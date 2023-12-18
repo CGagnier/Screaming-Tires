@@ -99,16 +99,16 @@ public partial class GameController : Node
 	#region HighScore + Dictionary Methods
 	public void SaveHighScore() {
 
-		var ScoreFile = new File();
-		ScoreFile.Open(filepath,(int)File.ModeFlags.Write);
+		//var //reFile = new File();
+		//ScoreFile.Open(filepath,(int)File.ModeFlags.Write);
 
-		Dictionary<int,double> savedValues = Save();
+		//Dictionary<int,double> savedValues = Save();
 
-		ScoreFile.StoreLine(DicToString(savedValues));
-		ScoreFile.Close();
+		//ScoreFile.StoreLine(DicToString(savedValues));
+		//ScoreFile.Close();
 	}
 	public double LoadHighScore(int pCircuitId) {
-		var SavedFile = new File();
+/* 		var SavedFile = new File();
 		if (!SavedFile.FileExists(filepath)) {
 			return 0.0;
 		}else {
@@ -127,7 +127,7 @@ public partial class GameController : Node
 			}
 
 			SavedFile.Close();
-		}
+		} */
 		return 0.0;
 	}
 	public Dictionary<int, double> Save()

@@ -4,13 +4,13 @@ using System;
 public partial class HUD : MarginContainer
 {
 	[Signal]
-	public delegate void PauseGame();
+	public delegate void PauseGameEventHandler();
 	[Signal]
-	public delegate void ResumeGame();
+	public delegate void ResumeGameEventHandler();
 	[Signal]
-	public delegate void RestartGame();
+	public delegate void RestartGameEventHandler();
 	[Signal]
-	public delegate void MainMenu();
+	public delegate void MainMenuEventHandler();
 
 	private int totNumOfCheckpoints;
 	private int currentNumOfCheckpoints;

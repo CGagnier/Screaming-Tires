@@ -4,7 +4,7 @@ using System;
 public partial class Checkpoint : Area3D
 {
 	[Signal]
-	public delegate void HasBeenChecked();
+	public delegate void HasBeenCheckedEventHandler();
 
 	public Checkpoint Last { get; set; }
 	public Checkpoint Next { get; set; }
@@ -68,7 +68,7 @@ public partial class Checkpoint : Area3D
 	}
 
 	// Waiting for collision with the vehicule to set the checkpoint visibility
-	public void BodyEntered(Godot.Object col) {
+	public void BodyEntered(Object col) {
 		bool isVehicule = col is VehicleBody3D;
 		if (!Checked && isVehicule)
 			CheckIt();
