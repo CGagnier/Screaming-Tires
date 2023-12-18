@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class CircuitOption : MarginContainer
+public partial class CircuitOption : MarginContainer
 {
 
 

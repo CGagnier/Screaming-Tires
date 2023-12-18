@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Menu : Node
+public partial class Menu : Node
 {
     public override void _Ready()
     {

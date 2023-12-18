@@ -6,26 +6,30 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
+config_version=5
 
 [application]
 
 config/name="Screaming Tires"
 run/main_scene="res://scenes/MainMenu.tscn"
+config/features=PackedStringArray("4.2", "C#")
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
-window/dpi/allow_hidpi=true
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Screaming Tires"
+
+[mono]
+
+project/assembly_name="Screaming Tires"
+
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/defaults/default_environment="res://default_env.tres"
+quality/driver/driver_name="GLES2"

@@ -1,4 +1,4 @@
-[gd_resource type="ProceduralSky" format=2]
+[gd_resource type="Sky" format=2]
 
 [resource]
 
@@ -19,5 +19,5 @@ sun_angle_max = 100.0
 sun_curve = 0.05
 sun_energy = 16.0
 texture_size = 2
-_sections_unfolded = [ "Ground", "Sky", "Sun", "Texture" ]
+_sections_unfolded = [ "Ground", "Sky", "Sun", "Texture2D" ]
 

@@ -1,169 +1,139 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=16 format=3 uid="uid://cney34egbw3q7"]
 
-[ext_resource path="res://scripts/Menu.cs" type="Script" id=1]
-[ext_resource path="res://scenes/City.tscn" type="PackedScene" id=2]
-[ext_resource path="res://default_env_blurred.tres" type="Environment" id=3]
-[ext_resource path="res://sounds/AlexBeroza_-_Spinnin_.ogg" type="AudioStream" id=4]
-[ext_resource path="res://fonts/Hobby-of-night.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/ui/CircuitOption.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/MenuNrmHover.png" type="Texture" id=7]
+[ext_resource type="PackedScene" uid="uid://bwpvxvp1cv8cu" path="res://scenes/City.tscn" id="2"]
+[ext_resource type="Environment" uid="uid://cfb4mgk5bvr1u" path="res://default_env_blurred.tres" id="3"]
+[ext_resource type="AudioStream" uid="uid://dimce0mpl1hx3" path="res://sounds/AlexBeroza_-_Spinnin_.ogg" id="4"]
+[ext_resource type="FontFile" uid="uid://cg08lcqjraye6" path="res://fonts/Hobby-of-night.ttf" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/CircuitOption.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://cyhefmgwqbgxg" path="res://textures/MenuNrmHover.png" id="7"]
 
-[sub_resource type="Animation" id=1]
-
+[sub_resource type="Animation" id="1"]
 resource_name = "Travel"
 length = 45.0
-loop = true
-tracks/0/type = "transform"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0, 1.45865, 0, -0.382683, 0, 0, 0.92388, 1, 1, 1, 7.3, 1, 0, 0.771149, -10.5953, 0, 0, 0, 1, 1, 1, 1, 12.3, 1, -5.14526, 0.910319, -16.9957, -0.0575838, 0.686422, 0.0546815, 0.722855, 1, 1, 1, 18.9, 1, -11.3977, 0.910319, -12.9932, 7.11355e-06, 0.996842, 0.07941, -8.92315e-05, 1, 1, 1, 26.4, 1, -11.3977, 0.910319, -0.258107, 2.01359e-05, 0.9977, -0.067789, -8.72204e-05, 1, 1, 1, 33.5, 1, 0.281982, 0.910319, -0.258107, 0.050145, -0.671081, 0.045616, 0.738279, 1, 1, 1 )
+loop_mode = 1
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43rom"]
+_data = {
+"Travel": SubResource("1")
+}
 
-size = 50
-font_data = ExtResource( 5 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("5")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("7")
+region = Rect2(167, 27, 707, 124)
 
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 167, 27, 707, 124 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("7")
+region = Rect2(165, 513, 707, 124)
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("7")
+region = Rect2(167, 182, 707, 124)
 
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 165, 513, 707, 124 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("7")
+region = Rect2(165, 668, 707, 124)
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("7")
+region = Rect2(167, 337, 707, 124)
 
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 167, 182, 707, 124 )
-
-[sub_resource type="AtlasTexture" id=6]
-
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 165, 668, 707, 124 )
-
-[sub_resource type="AtlasTexture" id=7]
-
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 167, 337, 707, 124 )
-
-[sub_resource type="AtlasTexture" id=8]
-
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 165, 823, 707, 124 )
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("7")
+region = Rect2(165, 823, 707, 124)
 
 [node name="Node" type="Node"]
-script = ExtResource( 1 )
 
-[node name="RaceMap" parent="." instance=ExtResource( 2 )]
+[node name="RaceMap" parent="." instance=ExtResource("2")]
+transform = Transform3D(0.999999, 0.00129154, 0, -0.00129154, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Track" type="Spatial" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.45865, 0 )
+[node name="Track" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.45865, 0)
 
 [node name="Anim" type="AnimationPlayer" parent="Track"]
-playback_process_mode = 0
-playback_speed = 2.0
-anims/Travel = SubResource( 1 )
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_43rom")
+}
 
-[node name="MenuCam" type="Camera" parent="Track"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226312, 1.16382, 5.83423 )
+[node name="MenuCam" type="Camera3D" parent="Track"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226312, 1.16382, 5.83423)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Track/MenuCam"]
-environment = ExtResource( 3 )
+environment = ExtResource("3")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 
 [node name="RaceSelect" type="MarginContainer" parent="."]
-editor/display_folded = true
 visible = false
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = 960.0
-margin_bottom = 540.0
-custom_constants/margin_right = 50
-custom_constants/margin_top = 50
-custom_constants/margin_left = 50
-custom_constants/margin_bottom = 50
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="VBox" type="VBoxContainer" parent="RaceSelect"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 1870.0
-margin_bottom = 1030.0
-custom_constants/separation = 50
+layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Descrpt" type="Label" parent="RaceSelect/VBox"]
-margin_right = 1820.0
-margin_bottom = 66.0
-custom_fonts/font = SubResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
 text = "Select your race"
-align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="RaceSelect/VBox"]
-margin_top = 116.0
-margin_right = 1820.0
-margin_bottom = 357.0
-custom_constants/separation = 60
+layout_mode = 2
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="CircuitOption" parent="RaceSelect/VBox/HBoxContainer" instance=ExtResource( 6 )]
-margin_left = 789.0
-margin_right = 1030.0
+[node name="CircuitOption" parent="RaceSelect/VBox/HBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="RaceSelect/VBox"]
-margin_top = 407.0
-margin_right = 1820.0
-margin_bottom = 407.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 158.0
-margin_top = 68.0
-margin_right = 865.0
-margin_bottom = 356.0
+offset_left = 158.0
+offset_top = 68.0
+offset_right = 865.0
+offset_bottom = 356.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 707.0
-margin_bottom = 288.0
-custom_constants/separation = 20
+layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-margin_right = 707.0
+layout_mode = 2
 
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-margin_top = 20.0
-margin_right = 707.0
-margin_bottom = 144.0
-texture_normal = SubResource( 3 )
-texture_hover = SubResource( 4 )
+layout_mode = 2
+texture_normal = SubResource("3")
+texture_hover = SubResource("4")
 
 [node name="Pratice Mode" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 164.0
-margin_right = 707.0
-margin_bottom = 288.0
-texture_normal = SubResource( 5 )
-texture_hover = SubResource( 6 )
+layout_mode = 2
+texture_normal = SubResource("5")
+texture_hover = SubResource("6")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-margin_top = 164.0
-margin_right = 707.0
-margin_bottom = 288.0
-texture_normal = SubResource( 7 )
-texture_hover = SubResource( 8 )
-
+layout_mode = 2
+texture_normal = SubResource("7")
+texture_hover = SubResource("8")

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/AlexBeroza_-_Spinnin_.ogg-7d409d42ca2cc7b5b7fc020b10d02fb3.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dimce0mpl1hx3"
+path="res://.godot/imported/AlexBeroza_-_Spinnin_.ogg-7d409d42ca2cc7b5b7fc020b10d02fb3.oggvorbisstr"
 
 [deps]
 
 source_file="res://sounds/AlexBeroza_-_Spinnin_.ogg"
-dest_files=[ "res://.import/AlexBeroza_-_Spinnin_.ogg-7d409d42ca2cc7b5b7fc020b10d02fb3.oggstr" ]
+dest_files=["res://.godot/imported/AlexBeroza_-_Spinnin_.ogg-7d409d42ca2cc7b5b7fc020b10d02fb3.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

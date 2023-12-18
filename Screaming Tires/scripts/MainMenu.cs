@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MainMenu : TextureRect
+public partial class MainMenu : TextureRect
 {
     public Circuit[] circuits;
 
@@ -14,7 +14,7 @@ public class MainMenu : TextureRect
         GD.Print("Change to circuit id: "+ indexForCircuit);
 
         Race = GD.Load<PackedScene>("res://scenes/Main.tscn").Instance();
-        Race.GetNode("HUD").Connect("MainMenu",this,"BackToMenu");
+        Race.GetNode("HUD").Connect("MainMenu", new Callable(this, "BackToMenu"));
         // TODO: Call generate checkpoints with the selected circuit
 
         GetParent().AddChild(Race);

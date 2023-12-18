@@ -1,61 +1,48 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://b3ihy8x0iba8e"]
 
-[ext_resource path="res://scripts/CarPlayer.cs" type="Script" id=1]
-[ext_resource path="res://models/baseCar_Lights.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://materials/FrontLights_OFF.tres" type="Material" id=3]
-[ext_resource path="res://materials/BasicColorMat.tres" type="Material" id=4]
-[ext_resource path="res://models/baseWheel.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://default_env.tres" type="Environment" id=6]
-[ext_resource path="res://scripts/CameraTrack.gd" type="Script" id=7]
+[ext_resource type="Script" path="res://scripts/CarPlayer.cs" id="1"]
+[ext_resource type="ArrayMesh" uid="uid://wyysjr66wb1" path="res://models/baseCar_Lights.obj" id="2"]
+[ext_resource type="ArrayMesh" uid="uid://wfl4ychsom0t" path="res://models/baseWheel.obj" id="5"]
+[ext_resource type="Environment" uid="uid://bnm5714vwytxa" path="res://default_env.tres" id="6"]
+[ext_resource type="Script" path="res://scripts/CameraTrack.gd" id="7"]
 
-[sub_resource type="PhysicsMaterial" id=1]
-
+[sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.5
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape3D" id="2"]
+size = Vector3(0.991014, 1.05037, 2.16984)
 
-extents = Vector3( 0.495507, 0.525185, 1.08492 )
+[node name="PlayerCar" type="VehicleBody3D"]
+physics_material_override = SubResource("1")
+script = ExtResource("1")
 
-[sub_resource type="SpatialMaterial" id=3]
-
-albedo_color = Color( 0, 0, 0, 1 )
-
-[node name="PlayerCar" type="VehicleBody"]
-physics_material_override = SubResource( 1 )
-script = ExtResource( 1 )
-
-[node name="Front_Lights" type="Spatial" parent="."]
-editor/display_folded = true
+[node name="Front_Lights" type="Node3D" parent="."]
 visible = false
 
-[node name="LeftLight" type="SpotLight" parent="Front_Lights"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.690757, 0.266388, 2.59263 )
-light_color = Color( 1, 0.910954, 0.430108, 1 )
+[node name="LeftLight" type="SpotLight3D" parent="Front_Lights"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.690757, 0.266388, 2.59263)
+light_color = Color(1, 0.910954, 0.430108, 1)
 shadow_enabled = true
 spot_range = 4.82921
 spot_angle = 37.8674
 
-[node name="RightLight" type="SpotLight" parent="Front_Lights"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.70078, 0.266388, 2.59263 )
-light_color = Color( 0.942204, 1, 0.537634, 1 )
+[node name="RightLight" type="SpotLight3D" parent="Front_Lights"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.70078, 0.266388, 2.59263)
+light_color = Color(0.942204, 1, 0.537634, 1)
 shadow_enabled = true
 spot_range = 4.82921
 spot_angle = 37.8674
 
-[node name="CarMesh" type="MeshInstance" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.266388, 0 )
-mesh = ExtResource( 2 )
-material/0 = ExtResource( 3 )
-material/1 = ExtResource( 4 )
-material/2 = ExtResource( 4 )
+[node name="CarMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.266388, 0)
+mesh = ExtResource("2")
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395969, 0.2172 )
-shape = SubResource( 2 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395969, 0.2172)
+shape = SubResource("2")
 
-[node name="Back-L" type="VehicleWheel" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497812, -0.0829626, -0.548375 )
+[node name="Back-L" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497812, -0.0829626, -0.548375)
 use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.175
@@ -64,13 +51,12 @@ suspension_travel = 0.1
 suspension_stiffness = 50.0
 damping_compression = 0.88
 
-[node name="MeshInstance" type="MeshInstance" parent="Back-L"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 3 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Back-L"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("5")
 
-[node name="Back-R" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497812, -0.0829626, -0.548375 )
+[node name="Back-R" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497812, -0.0829626, -0.548375)
 use_as_traction = true
 wheel_roll_influence = 0.4
 wheel_radius = 0.175
@@ -79,14 +65,12 @@ suspension_travel = 0.1
 suspension_stiffness = 50.0
 damping_compression = 0.88
 
-[node name="MeshInstance" type="MeshInstance" parent="Back-R"]
-transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 3 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Back-R"]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
+mesh = ExtResource("5")
 
-[node name="Front-L" type="VehicleWheel" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497812, -0.0829626, 0.892377 )
+[node name="Front-L" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497812, -0.0829626, 0.892377)
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.4
@@ -96,14 +80,12 @@ suspension_travel = 0.1
 suspension_stiffness = 50.0
 damping_compression = 0.88
 
-[node name="MeshInstance" type="MeshInstance" parent="Front-L"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 3 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Front-L"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("5")
 
-[node name="Front-R" type="VehicleWheel" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497812, -0.0829626, 0.892377 )
+[node name="Front-R" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497812, -0.0829626, 0.892377)
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.4
@@ -113,19 +95,17 @@ suspension_travel = 0.1
 suspension_stiffness = 50.0
 damping_compression = 0.88
 
-[node name="MeshInstance" type="MeshInstance" parent="Front-R"]
-transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 3 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Front-R"]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
+mesh = ExtResource("5")
 
-[node name="camtrack" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48147, 0 )
+[node name="camtrack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48147, 0)
 
-[node name="Camera" type="Camera" parent="camtrack"]
-transform = Transform( -1, 2.84217e-14, -8.74228e-08, -1.91516e-08, 0.975709, 0.219069, 8.52992e-08, 0.219069, -0.975709, 0, 2.10595, -6.51827 )
-environment = ExtResource( 6 )
-fov = 75.0
-script = ExtResource( 7 )
+[node name="Camera3D" type="Camera3D" parent="camtrack"]
+transform = Transform3D(-1, 2.84217e-14, -8.74228e-08, -1.91516e-08, 0.975709, 0.219069, 8.52992e-08, 0.219069, -0.975709, 0, 2.10595, -6.51827)
+environment = ExtResource("6")
+script = ExtResource("7")
 min_distance = 4.0
 max_distance = 10.0
 

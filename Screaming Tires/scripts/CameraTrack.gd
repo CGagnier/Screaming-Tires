@@ -1,11 +1,11 @@
 
-extends Camera
+extends Camera3D
 
 # Member variables
 var collision_exception = []
-export var min_distance = 0.5
-export var max_distance = 1.0
-export var angle_v_adjust = 0.0
+@export var min_distance = 0.5
+@export var max_distance = 1.0
+@export var angle_v_adjust = 0.0
 #export var autoturn_ray_aperture = 25
 #export var autoturn_speed = 50
 var max_height = 2.0
@@ -40,5 +40,5 @@ func _physics_process(dt):
 	
 	# Turn a little up or down
 	var t = get_transform()
-	t.basis = Basis(t.basis[0], deg2rad(angle_v_adjust))*t.basis
+	t.basis = Basis(t.basis[0], deg_to_rad(angle_v_adjust))*t.basis
 	set_transform(t)

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Lamp : RigidBody
+public partial class Lamp : RigidBody3D
 {
 
 //  public override void _Process(float delta)

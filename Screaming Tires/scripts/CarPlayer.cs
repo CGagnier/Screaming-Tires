@@ -1,88 +1,88 @@
 using Godot;
 using System;
 
-public class CarPlayer : VehicleBody
+public partial class CarPlayer : VehicleBody3D
 {
 
-    const float maxEngineForce = 30f;
-    const float steerMax = 0.8f;
-    const float steerSpeed = 0.5f;
+	const float maxEngineForce = 30f;
+	const float steerMax = 0.8f;
+	const float steerSpeed = 0.5f;
 
-    float steer_angle = 0;
-    float steer_target = 0;
+	float steer_angle = 0;
+	float steer_target = 0;
 
-    MeshInstance car;
+	MeshInstance3D car;
 
-    public SpatialMaterial lightsOff;
-    public SpatialMaterial lightsOn;
+	public StandardMaterial3D lightsOff;
+	public StandardMaterial3D lightsOn;
 
-    Spatial lightsGroup;
-
-
-    public override void _Ready()
-    {
-
-        //lightsOff = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_OFF.tres");
-        //lightsOn = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_ON.tres");
-
-        lightsGroup = (Spatial)GetNode("Front_Lights");
-
-        car = (MeshInstance) GetNode("CarMesh");
-
-    }
-    public override void _PhysicsProcess(float delta)
-    {
-        // Check for inputs. Steer + speed
+	Node3D lightsGroup;
 
 
-        // Need to replace by voice pitch
-        if (Input.IsActionPressed("ui_left")) // High Pitch
-            steer_target = steerMax; 
-        else if (Input.IsActionPressed("ui_right")) // Low Pitch
-            steer_target = -steerMax;
-        else 
-            steer_target = 0;
+	public override void _Ready()
+	{
 
-        if (Input.IsActionPressed("ui_up")) {
+		//lightsOff = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_OFF.tres");
+		//lightsOn = (SpatialMaterial)ResourceLoader.Load("res://materials/FrontLights_ON.tres");
+
+		lightsGroup = (Node3D)GetNode("Front_Lights");
+
+		car = (MeshInstance3D) GetNode("CarMesh");
+
+	}
+	public void _PhysicsProcess(float delta)
+	{
+		// Check for inputs. Steer + speed
 
 
-            EngineForce = maxEngineForce;
+		// Need to replace by voice pitch
+		if (Input.IsActionPressed("ui_left")) // High Pitch
+			steer_target = steerMax; 
+		else if (Input.IsActionPressed("ui_right")) // Low Pitch
+			steer_target = -steerMax;
+		else 
+			steer_target = 0;
 
-            //Can we turn on the front lights? 
-            //car.SetSurfaceMaterial(0, lightsOn);
-            lightsGroup.Show();
+		if (Input.IsActionPressed("ui_up")) {
 
-        }
-        else if (Input.IsActionPressed("ui_down")){
-            Brake = 0;
-            EngineForce = -maxEngineForce;
-        }
-        else {
-            //car.SetSurfaceMaterial(0, lightsOff);
-            lightsGroup.Hide();
-            EngineForce = 0;
-            Brake = 0.5f;
 
-        }
+			EngineForce = maxEngineForce;
 
-        if (steer_target < steer_angle) {
+			//Can we turn on the front lights? 
+			//car.SetSurfaceMaterial(0, lightsOn);
+			lightsGroup.Show();
 
-            steer_angle -= steerSpeed * delta; //Steer speed should match volume?
-            if (steer_target > steer_angle){
-                steer_angle = steer_target;
-            }
+		}
+		else if (Input.IsActionPressed("ui_down")){
+			Brake = 0;
+			EngineForce = -maxEngineForce;
+		}
+		else {
+			//car.SetSurfaceMaterial(0, lightsOff);
+			lightsGroup.Hide();
+			EngineForce = 0;
+			Brake = 0.5f;
 
-        }else if (steer_target > steer_angle) {
-            steer_angle += steerSpeed * delta; //Steer speed should match volume?
-            if (steer_target < steer_angle){
-                steer_angle = steer_target;
-            }
-        }
+		}
 
-        Steering = steer_angle;
-    }
+		if (steer_target < steer_angle) {
 
-    public void OnCollision (Godot.Object body) {
-        GD.Print(body);
-    }
+			steer_angle -= steerSpeed * delta; //Steer speed should match volume?
+			if (steer_target > steer_angle){
+				steer_angle = steer_target;
+			}
+
+		}else if (steer_target > steer_angle) {
+			steer_angle += steerSpeed * delta; //Steer speed should match volume?
+			if (steer_target < steer_angle){
+				steer_angle = steer_target;
+			}
+		}
+
+		Steering = steer_angle;
+	}
+
+	public void OnCollision (Object body) {
+		GD.Print(body);
+	}
 }
