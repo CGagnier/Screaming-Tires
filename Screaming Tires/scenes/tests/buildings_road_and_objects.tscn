@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7bcqbioou3a"]
+
+[ext_resource type="PackedScene" uid="uid://cgtfo0eppg4c5" path="res://models/BuildingsRoadAndObjects.dae" id="1_nno7j"]
+
+[node name="BuildingsRoadAndObjects" instance=ExtResource("1_nno7j")]

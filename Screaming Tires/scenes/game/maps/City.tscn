@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwpvxvp1cv8cu"]
 
 [ext_resource type="MeshLibrary" uid="uid://dekfi0ljoxa38" path="res://MeshLib/AllTiles.tres" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/Lamp.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/TrashCan.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/Bench.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d0bcte1y6xu8x" path="res://scenes/game/obstacles/Lamp.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ddbxltewaryme" path="res://scenes/game/obstacles/TrashCan.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://buoa07efqrtew" path="res://scenes/game/obstacles/Bench.tscn" id="4"]
 
 [node name="RaceMap" type="Node3D"]
 
@@ -105,25 +105,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.74372, 0.641927, -2.23504)
 
 [node name="Trash Can" parent="Obstacles" instance=ExtResource("3")]
 transform = Transform3D(0.652912, -0.0153201, -0.757279, 0, 0.999795, -0.0202263, 0.757434, 0.013206, 0.652778, 5.15718, 0.407636, 13.4964)
-linear_damp = 0.0
-angular_damp = 0.0
 
 [node name="Trash Can2" parent="Obstacles" instance=ExtResource("3")]
 transform = Transform3D(0.652912, -0.0153201, -0.757279, 0, 0.999795, -0.0202263, 0.757434, 0.013206, 0.652778, -9.39218, 0.407636, -10.0274)
-linear_damp = 0.0
-angular_damp = 0.0
 
 [node name="Trash Can3" parent="Obstacles" instance=ExtResource("3")]
 transform = Transform3D(0.652912, -0.0153201, -0.757279, 0, 0.999795, -0.0202263, 0.757434, 0.013206, 0.652778, -5.33687, 0.407636, 2.33396)
-linear_damp = 0.0
-angular_damp = 0.0
 
 [node name="Bench" parent="Obstacles" instance=ExtResource("4")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.14863, 0.583373, 2.33853)
-linear_damp = 0.0
-angular_damp = 0.0
 
 [node name="Bench2" parent="Obstacles" instance=ExtResource("4")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 6.21306, 0.583373, 13.6214)
-linear_damp = 0.0
-angular_damp = 0.0

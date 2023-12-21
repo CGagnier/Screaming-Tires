@@ -11,3 +11,4 @@ export_presets.cfg
 .vs/
 Screaming Tires/mono_crash*
 .godot/sha
+.DS_Store

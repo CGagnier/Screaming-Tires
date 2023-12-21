@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3ihy8x0iba8e"]
+[gd_scene load_steps=9 format=3 uid="uid://b3ihy8x0iba8e"]
 
 [ext_resource type="Script" path="res://scripts/CarPlayer.cs" id="1"]
 [ext_resource type="ArrayMesh" uid="uid://wyysjr66wb1" path="res://models/baseCar_Lights.obj" id="2"]
 [ext_resource type="ArrayMesh" uid="uid://wfl4ychsom0t" path="res://models/baseWheel.obj" id="5"]
-[ext_resource type="Environment" uid="uid://bnm5714vwytxa" path="res://default_env.tres" id="6"]
+[ext_resource type="Environment" uid="uid://bnm5714vwytxa" path="res://environments/default_env.tres" id="6"]
 [ext_resource type="Script" path="res://scripts/CameraTrack.gd" id="7"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
@@ -11,6 +11,11 @@ friction = 0.5
 
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(0.991014, 1.05037, 2.16984)
+
+[sub_resource type="Environment" id="Environment_lipx2"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
 
 [node name="PlayerCar" type="VehicleBody3D"]
 physics_material_override = SubResource("1")
@@ -108,5 +113,8 @@ environment = ExtResource("6")
 script = ExtResource("7")
 min_distance = 4.0
 max_distance = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="camtrack/Camera3D"]
+environment = SubResource("Environment_lipx2")
 
 [connection signal="body_entered" from="." to="." method="OnCollision"]

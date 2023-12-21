@@ -1,6 +1,6 @@
 [gd_resource type="MeshLibrary" load_steps=47 format=3 uid="uid://dekfi0ljoxa38"]
 
-[ext_resource type="Material" path="res://models/AllTextures.material" id="1"]
+[ext_resource type="Material" uid="uid://87fk6tg3hsu2" path="res://materials/palette.tres" id="1"]
 
 [sub_resource type="ArrayMesh" id="1"]
 resource_name = "Cube.003"

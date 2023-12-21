@@ -8,8 +8,8 @@ public partial class CarPlayer : VehicleBody3D
 	const float steerMax = 0.8f;
 	const float steerSpeed = 0.5f;
 
-	float steer_angle = 0;
-	float steer_target = 0;
+	double steer_angle = 0;
+	double steer_target = 0;
 
 	MeshInstance3D car;
 
@@ -30,10 +30,10 @@ public partial class CarPlayer : VehicleBody3D
 		car = (MeshInstance3D) GetNode("CarMesh");
 
 	}
-	public void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		// Check for inputs. Steer + speed
-
+		GD.Print("Steer: " + steer_angle);
 
 		// Need to replace by voice pitch
 		if (Input.IsActionPressed("ui_left")) // High Pitch
@@ -47,6 +47,7 @@ public partial class CarPlayer : VehicleBody3D
 
 
 			EngineForce = maxEngineForce;
+			Console.WriteLine("EngineForce: " + EngineForce);
 
 			//Can we turn on the front lights? 
 			//car.SetSurfaceMaterial(0, lightsOn);
@@ -79,7 +80,7 @@ public partial class CarPlayer : VehicleBody3D
 			}
 		}
 
-		Steering = steer_angle;
+		Steering = (float)steer_angle;
 	}
 
 	public void OnCollision (Object body) {

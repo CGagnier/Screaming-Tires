@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cney34egbw3q7"]
+[gd_scene load_steps=17 format=3 uid="uid://cney34egbw3q7"]
 
-[ext_resource type="PackedScene" uid="uid://bwpvxvp1cv8cu" path="res://scenes/City.tscn" id="2"]
-[ext_resource type="Environment" uid="uid://cfb4mgk5bvr1u" path="res://default_env_blurred.tres" id="3"]
+[ext_resource type="Script" path="res://scripts/Menu.cs" id="1_1bvxc"]
+[ext_resource type="PackedScene" uid="uid://bwpvxvp1cv8cu" path="res://scenes/game/maps/City.tscn" id="2"]
+[ext_resource type="Environment" uid="uid://cfb4mgk5bvr1u" path="res://environments/default_env_blurred.tres" id="3"]
 [ext_resource type="AudioStream" uid="uid://dimce0mpl1hx3" path="res://sounds/AlexBeroza_-_Spinnin_.ogg" id="4"]
 [ext_resource type="FontFile" uid="uid://cg08lcqjraye6" path="res://fonts/Hobby-of-night.ttf" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/ui/CircuitOption.tscn" id="6"]
@@ -51,6 +52,7 @@ atlas = ExtResource("7")
 region = Rect2(165, 823, 707, 124)
 
 [node name="Node" type="Node"]
+script = ExtResource("1_1bvxc")
 
 [node name="RaceMap" parent="." instance=ExtResource("2")]
 transform = Transform3D(0.999999, 0.00129154, 0, -0.00129154, 0.999999, 0, 0, 0, 1, 0, 0, 0)

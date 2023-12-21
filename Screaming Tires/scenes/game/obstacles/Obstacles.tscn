@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccsnmfcqjqkn0"]
+
+[ext_resource type="PackedScene" uid="uid://d0bcte1y6xu8x" path="res://scenes/game/obstacles/Lamp.tscn" id="1_qqfpw"]
+[ext_resource type="PackedScene" uid="uid://ddbxltewaryme" path="res://scenes/game/obstacles/TrashCan.tscn" id="2_vwhv1"]
+[ext_resource type="PackedScene" uid="uid://buoa07efqrtew" path="res://scenes/game/obstacles/Bench.tscn" id="3_cj6s3"]
+
+[node name="Scene Root" type="Node3D"]
+
+[node name="Lamp" parent="." instance=ExtResource("1_qqfpw")]
+
+[node name="Trash Can" parent="." instance=ExtResource("2_vwhv1")]
+
+[node name="Bench" parent="." instance=ExtResource("3_cj6s3")]
